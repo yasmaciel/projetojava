@@ -38,48 +38,31 @@ public class PessoaController {
 		System.out.print("Informe a altura: ");
 		pessoa.setAltura(tec.nextDouble());
 		
-		System.out.println("Informe o pais");
+		System.out.print("Informe o pais: ");
 		tec.nextLine();
 		pessoa.setNomePais(tec.nextLine());
 		
-		System.out.println("Infome o estado");
-		
+		System.out.print("Infome o estado: ");
 		pessoa.setNomedoestado(tec.nextLine());
 		
-		System.out.println("infome a Uf ");
-	
+		System.out.print("infome a Uf: ");
 		pessoa.setUf(tec.nextLine());
 		
-		System.out.println("Infome a cidade");
-		
+		System.out.print("Infome a cidade: ");
 		pessoa.setNomeCidade(tec.nextLine());
 		
-		System.out.println("Informe o Bairro");
-		
+		System.out.print("Informe o Bairro: ");
 		pessoa.setBairro(tec.nextLine());
 		
-		System.out.println("Informe a Rua");
-		
+		System.out.print("Informe a Rua: ");
 		pessoa.setRua(tec.nextLine());
 		
-		System.out.println("Informe o complemento");
+		System.out.print("Informe o complemento: ");
+		pessoa.setComplemento(tec.nextLine());
 		
-		pessoa.setNomeCidade(tec.nextLine());
-		
-		System.out.println("Informe o Numero");
-		
+		System.out.print("Informe o Numero: ");
 		pessoa.setNumero(tec.nextLine());
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
 		return pessoa;
 	}
 
@@ -87,7 +70,7 @@ public class PessoaController {
 		System.out.println("--- PESSOAS CADASTRADAS ---");
 
 		System.out.printf("| %20s | %4s | %5s | %6s | %10s | %6s| %5s | %15s | %20s | %20s | %5s  |\n", 
-				"Nome", "Ano", "Idade", "Altura", "pais", "estado", "cidade", "Bairro", "Rua", "Complemento","Numero" );
+				"Nome", "Ano", "Idade", "Altura", "pais", "estado", "UF" , "cidade", "Bairro", "Rua", "Complemento","Numero" );
 
 		for(int i = 0; i < pessoas.size(); i++){
 			System.out.printf("| %20s | %4d | %5d | %6.2f | %10s | %10s| %6s | %10s | %15s | %20s | %5s | %5s \n",
@@ -104,11 +87,6 @@ public class PessoaController {
 					pessoas.get(i).getComplemento(),
 					pessoas.get(i).getNumero());
 					
-					
-					
-					
-			
-			
 		}
 
 		return pessoas;
