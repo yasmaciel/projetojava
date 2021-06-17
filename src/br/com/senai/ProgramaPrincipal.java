@@ -41,6 +41,10 @@ public class ProgramaPrincipal {
 					produtoController.listarProdutos(produto);
 					break;
 					
+				case 5:
+					produtoController.editarProduto(produto);
+					break;
+					
 					
 				case 9:
 					sair = true;

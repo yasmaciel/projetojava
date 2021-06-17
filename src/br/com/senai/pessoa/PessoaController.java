@@ -20,9 +20,13 @@ public class PessoaController {
 		System.out.println("\n--- MENU ---");
 		System.out.println("1) Cadastrar pessoa");
 		System.out.println("2) Listar pessoas cadastradas");
+		System.out.println("3) Cadastrar produto");
+		System.out.println("4) Listar produtos cadastradas");
+		System.out.println("5) Editar produto");
 		System.out.println("9) Sair do sistema");
 		System.out.println("-------------------");
 	}
+	
 
 	public Pessoa cadastrarPessoa(){
 		Pessoa pessoa = new Pessoa();
@@ -69,7 +73,7 @@ public class PessoaController {
 	public List<Pessoa> listarPessoas(List<Pessoa> pessoas){
 		System.out.println("--- PESSOAS CADASTRADAS ---");
 
-		System.out.printf("| %20s | %4s | %5s | %6s | %10s | %6s| %5s | %15s | %20s | %20s | %5s  |\n", 
+		System.out.printf("| %20s | %4s | %5s | %6s | %10s | %10s| %5s | %15s | %20s | %20s | %5s  |\n", 
 				"Nome", "Ano", "Idade", "Altura", "pais", "estado", "UF" , "cidade", "Bairro", "Rua", "Complemento","Numero" );
 
 		for(int i = 0; i < pessoas.size(); i++){
