@@ -34,14 +34,19 @@ public class ProdutoController {
 	}
 	
 	public List<Produto> listarProdutos(List<Produto> produtos){
-System.out.println("--- PRODUTOS CADASTRADAS ---");
+		if(produtos.isEmpty()) {
+			System.out.println("Não possui produtos cadastrados");
+			return null;
+		}
+		
+		System.out.println("--- PRODUTOS CADASTRADAS ---");
 		
 		System.out.printf("| %2s | %10s | %10s | %10s | %10s |\n", 
 				"Id","Produto", "Valor Unitario Do Produto","Quantidade do Produto", "Volor total do produto" );
 		
 		for(int i = 0; i < produtos.size(); i ++){
 			System.out.printf("|%2d | %10s | %25f | %21d | %22f | \n",
-					i,
+					i + 1 ,
 					produtos.get(i).getNomeDoProduto(),
 					produtos.get(i).getValorUnitarioDoProduto(),
 					produtos.get(i).getQuantidadeDoProduto(),
@@ -55,10 +60,15 @@ System.out.println("--- PRODUTOS CADASTRADAS ---");
 	
 	public List<Produto> editarProduto(List<Produto> produtos) {
 		Produto produto = new Produto();
-		
 		listarProdutos(produtos);
+		
+		if(produtos.isEmpty()) {
+			return null;
+			
+		}
+		
 		System.out.println("Informe o id do produto para editar: ");
-		int idProduto = tec.nextInt();
+		int idProduto = tec.nextInt() - 1;
 		
 		System.out.println("1) Nome do produto");
 		System.out.println("2) Quantidade de produto");
@@ -82,24 +92,29 @@ System.out.println("--- PRODUTOS CADASTRADAS ---");
 			
 		case 2:
 			System.out.println("------EDITAR QUANTIDADE DO PRODUTO-------");
-			produto.setNomeDoProduto(tec.next());
-			
-			produto.setQuantidadeDoProduto(produtos.get(idProduto).getQuantidadeDoProduto());
+			System.out.println("Informe a quantidade de produto: ");
+			produto.setNomeDoProduto(produtos.get(idProduto).getNomeDoProduto());
 			produto.setValorUnitarioDoProduto(produtos.get(idProduto).getValorUnitarioDoProduto());
-			produto.setValorTotalDoProduto(produtos.get(idProduto).getValorTotalDoProduto());
+			
+			produto.setValorTotalDoProduto(
+					produto.getValorUnitarioDoProduto()* produto.getQuantidadeDoProduto());
 			
 				produtos.set(idProduto, produto);
 			break;
 			
 		case 3:
-			System.out.println("-----EDITAR O VALOR UNITÁRIO DO PRODUTO-------");
-			produto.setNomeDoProduto(tec.next());
+			System.out.println("---------EDITAR O VALOR UNITÁRIO DO PRODUTO---------");
+			System.out.println("Informe um novo valor unitário: ");
+			produto.setValorUnitarioDoProduto(tec.nextDouble());
 			
+			produto.setNomeDoProduto(produtos.get(idProduto).getNomeDoProduto());
 			produto.setQuantidadeDoProduto(produtos.get(idProduto).getQuantidadeDoProduto());
-			produto.setValorUnitarioDoProduto(produtos.get(idProduto).getValorUnitarioDoProduto());
 			produto.setValorTotalDoProduto(produtos.get(idProduto).getValorTotalDoProduto());
 			
-				produtos.set(idProduto, produto);
+			produtos.set(idProduto, produto);
+			
+			produto.setValorTotalDoProduto(produto.getQuantidadeDoProduto() * produto.getValorUnitarioDoProduto());
+			
 			break;
 			
 		default:
@@ -112,6 +127,23 @@ System.out.println("--- PRODUTOS CADASTRADAS ---");
 		return produtos;
 		
 	}
+	public void excluirProduto(List<Produto>produtos) {
+		listarProdutos(produtos);
+		
+		if(produtos.isEmpty()) {
+			return;
+		}
+		System.out.println("-----EXCLUIR PRODUTO-----");
+		System.out.println("Informe o produto para excluir:");
+		int idProduto = tec.nextInt() - 1;
+		
+		if(produtos.size() <= idProduto) {
+			System.out.println("Produto não cadastrado.");
+			return;
+		}
+		produtos.remove(idProduto);
+	}
+	
 }
 		
 		 
