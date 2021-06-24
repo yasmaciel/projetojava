@@ -3,6 +3,8 @@ package br.com.senai;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.senai.loja.Venda;
+import br.com.senai.loja.VendaController;
 import br.com.senai.pessoa.Pessoa;
 import br.com.senai.pessoa.PessoaController;
 import br.com.senai.produto.Produto;
@@ -13,6 +15,7 @@ public class ProgramaPrincipal {
 	public static void main(String[] args) {
 		List<Pessoa> pessoas = new ArrayList<>();
 		List<Produto> produto = new ArrayList<>();
+		List<Venda> vendas = new ArrayList<Venda>();
 		
 		Produto produto2 = new Produto(
 				"Abacate",
@@ -24,6 +27,7 @@ public class ProgramaPrincipal {
 
 		PessoaController pessoaController = new PessoaController();
 		ProdutoController produtoController = new ProdutoController();
+		VendaController vendaController = new VendaController();
  
 		boolean sair = false;
 
@@ -34,39 +38,19 @@ public class ProgramaPrincipal {
 
 			switch(opcao){
 				case 1:
-					pessoas.add(pessoaController.cadastrarPessoa());
+					pessoaController.menu(pessoa);
 					break;
 
+				
 				case 2:
-					pessoaController.listarPessoas(pessoas);
-					break;
+					produtoController.menu(produto);
 					
 				case 3:
-					pessoaController.editarPessoa(pessoas);
+					vendaController.menu(pessoas,vendas,produto);
 					break;
+					 
 					
-				case 4:
-					pessoaController.excluirPessoa(pessoas);
-					break;
-					
-				case 5:
-					produto.add(produtoController.cadastrarProduto());
-					break;
-					
-				case 6:
-					produtoController.listarProdutos(produto);
-					break;
-					
-				case 7:
-					produtoController.editarProduto(produto);
-					break;
-				
-				case 8:
-					produtoController.excluirProduto(produto);
-					break;
-					
-					
-				case 9:
+		case 4:
 					sair = true;
 					break;
 
@@ -78,5 +62,12 @@ public class ProgramaPrincipal {
 
 		System.out.println("Sistema finalizado!");
 	}
-
+	public void menu() {
+		System.out.println("\n--- MENU ---");
+		System.out.println("1) Cadastrar pessoa");
+		System.out.println("5) Cadastrar produto");
+		System.out.println("10)Cadastrar venda");
+		System.out.println("11) Sair do sistema");
+		System.out.println("-------------------");
+}
 }

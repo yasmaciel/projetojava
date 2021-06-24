@@ -3,8 +3,6 @@ package br.com.senai.pessoa;
 import java.util.List;
 import java.util.Scanner;
 
-import br.com.senai.produto.Produto;
-
 public class PessoaController {
 
 	private Scanner tec;
@@ -18,17 +16,14 @@ public class PessoaController {
 		return tec.nextInt();
 	}
 
+	
+
 	public void menu(){
 		System.out.println("\n--- MENU ---");
-		System.out.println("1) Cadastrar pessoa");
-		System.out.println("2) Listar pessoas cadastradas");
-		System.out.println("3) Editar Pessoa");
-		System.out.println("4) Excluir pessoa");
-		System.out.println("5) Cadastrar produto");
-		System.out.println("6) Listar produtos cadastradas");
-		System.out.println("7) Editar produto");
-		System.out.println("8) Exclui produto");
-		System.out.println("9) Sair do sistema");
+		System.out.println("1) Criar");
+		System.out.println("2) Editar");
+		System.out.println("3)Excluir");
+		System.out.println("4) Sair do sistema");
 		System.out.println("-------------------");
 	}
 	
@@ -36,7 +31,7 @@ public class PessoaController {
 	public Pessoa cadastrarPessoa(){
 		Pessoa pessoa = new Pessoa();
 
-		System.out.println("--- CADASTRAR PESSOA ---");
+		
 		System.out.print("Informe o nome: ");
 		tec.nextLine();
 		pessoa.setNome(tec.nextLine());

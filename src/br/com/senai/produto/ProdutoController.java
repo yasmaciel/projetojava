@@ -13,6 +13,17 @@ public class ProdutoController {
 	public ProdutoController(){
 		tec = new Scanner(System.in);
 	}
+		
+	
+	public void menu(List<Produto>produto){
+		
+		System.out.println("\n--- MENU ---");
+		System.out.println("1) Criar");
+		System.out.println("2) Editar");
+		System.out.println("3)Excluir");
+		System.out.println("4) Sair do sistema");
+		System.out.println("-------------------");
+	}
 	
 		
 
