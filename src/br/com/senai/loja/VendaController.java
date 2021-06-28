@@ -9,6 +9,7 @@ import br.com.senai.pessoa.PessoaController;
 import br.com.senai.produto.Produto;
 import br.com.senai.produto.ProdutoController;
 
+
 public class VendaController {
 	
 	private Scanner tec;
@@ -25,14 +26,29 @@ public class VendaController {
 		return tec.nextInt();
 	}
 	
-	public void menu(){
-		System.out.println("\n--- MENU ---");
-		System.out.println("1) Criar");
-		System.out.println("2)Listar");
-		System.out.println("4) Sair do sistema");
+	public void menu(List<Venda>venda, List<Produto>produto, List<Pessoa>pessoa){
+		System.out.println("\n--- MENU VENDA ---");
+		System.out.println("1) Criar Produto");
+		System.out.println("2)Listar Produto ");
+		System.out.println("3) Sair do sistema");
+		System.out.print("Informe a opÁ„o desejada: ");
 		
-	}
+		int opcao = tec.nextInt();
+		switch(opcao) {
+		case 1:
+			venda.add(cadastrarVenda(produto,pessoa));
+			break;
 			
+		case 2 :
+			listarVenda(venda);
+			break;
+			
+		case 3 :
+		default:
+			System.out.println("Op√ß√£o inv√°lida!");
+			break;
+		}
+	}
 	
 	public List<Venda> listarVenda(List<Venda> vendas) {
 		
@@ -97,6 +113,9 @@ public class VendaController {
 		
 		return venda;
 		
-	}
+	
+	
 
+	}
 }
+

@@ -18,13 +18,33 @@ public class PessoaController {
 
 	
 
-	public void menu(){
-		System.out.println("\n--- MENU ---");
-		System.out.println("1) Criar");
-		System.out.println("2) Editar");
-		System.out.println("3)Excluir");
+	public void menu(List<Pessoa>pessoa){
+		System.out.println("\n--- MENU PESSOA  ---");
+		System.out.println("1) Cadastrar Pessoa");
+		System.out.println("2) Editar Pessoa");
+		System.out.println("3)Excluir Pessoa");
 		System.out.println("4) Sair do sistema");
 		System.out.println("-------------------");
+		
+		int opcao = tec.nextInt();
+		switch(opcao) {
+		case 1 :
+			pessoa.add(cadastrarPessoa());
+			break;
+		case 2 :
+			editarPessoa(pessoa);
+			break;
+			
+		case 3:
+			excluirPessoa(pessoa);
+			break;
+			
+		case 4:
+
+		default:
+			System.out.println("Opção inválida!");
+			break;
+		}		
 	}
 	
 

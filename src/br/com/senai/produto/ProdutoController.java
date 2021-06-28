@@ -17,14 +17,36 @@ public class ProdutoController {
 	
 	public void menu(List<Produto>produto){
 		
-		System.out.println("\n--- MENU ---");
-		System.out.println("1) Criar");
-		System.out.println("2) Editar");
-		System.out.println("3)Excluir");
+		System.out.println("\n--- MENU PRPDUTO ---");
+		System.out.println("1) Cadastrar Produto");
+		System.out.println("2) Editar Produto");
+		System.out.println("3) Excluir Produto");
 		System.out.println("4) Sair do sistema");
 		System.out.println("-------------------");
+		
+		int opcao = tec.nextInt();
+		switch(opcao) {
+		
+		case 1 :
+			produto.add(cadastrarProduto());
+			break;
+			
+		case 2:
+			editarProduto(produto);
+			break;
+			
+		case 3:
+			excluirProduto(produto);
+			break;
+			
+		case 4:
+		default:
+			System.out.println("Opção inválida!");
+			break;
+
+		}
 	}
-	
+
 		
 
 	public Produto cadastrarProduto(){
